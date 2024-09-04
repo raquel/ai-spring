@@ -17,5 +17,5 @@ public interface OllamaInterface {
     OllamaResponse generate(@RequestBody OllamaRequest question);
 
     @PostExchange("/chat")
-    OllamaResponse chat(@RequestBody OllamaChatRequest question);
+    OllamaChatResponse chat(@RequestBody OllamaChatRequest question);
 }

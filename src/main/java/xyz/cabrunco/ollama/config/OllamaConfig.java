@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.support.RestClientAdapter;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import xyz.cabrunco.ollama.services.OllamaInterface;
 
@@ -26,6 +28,15 @@ public class OllamaConfig {
         RestClientAdapter adapter = RestClientAdapter.create(client);
         HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
         return factory.createClient(OllamaInterface.class);
+    }
+
+    @Bean
+    public WebClient ollamaWebClient(@Value("${ollama.baseurl}") String baseUrl) {
+        return WebClient.builder()
+                .baseUrl(baseUrl)
+                .defaultHeader("Accept", MediaType.APPLICATION_NDJSON_VALUE)
+                .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                .build();
     }
 
 }

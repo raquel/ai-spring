@@ -19,13 +19,16 @@ repositories {
     maven { url = uri("https://repo.spring.io/milestone") }
 }
 
-extra["springAiVersion"] = "1.0.0-M1"
+extra["springAiVersion"] = "1.0.0-M2"
 
 dependencies {
-    implementation("org.springframework.ai:spring-ai-chroma-store-spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+//    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+//    implementation("org.springframework.ai:spring-ai-chroma-store-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-ollama-spring-boot-starter")
-    implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
-    implementation("org.springframework.ai:spring-ai-stability-ai-spring-boot-starter")
+//    implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
+//    implementation("org.springframework.ai:spring-ai-stability-ai-spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

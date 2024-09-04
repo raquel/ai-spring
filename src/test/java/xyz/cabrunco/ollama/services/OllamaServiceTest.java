@@ -63,7 +63,7 @@ class OllamaServiceTest {
     }
 
     @ParameterizedTest(name = "{0}")
-    @ValueSource(strings = {OllamaModels.ORCA_MINI,
+    @ValueSource(strings = {OllamaModels.PHI,
             OllamaModels.LLAMA3, OllamaModels.GEMMA})
     void generateWithText(String model) {
         var textRequest = new OllamaTextRequest(

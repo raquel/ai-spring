@@ -14,7 +14,7 @@ import static xyz.cabrunco.ollama.records.OllamaRecords.ModelList.OllamaModel;
 @Service
 public class OllamaService {
 
-    public static final String DEFAULT_MODEL = "orca-mini";
+    public static final String DEFAULT_MODEL = OllamaModels.PHI;
     private static final Logger log = LoggerFactory.getLogger(OllamaService.class);
 
     private final OllamaInterface ollamaInterface;
